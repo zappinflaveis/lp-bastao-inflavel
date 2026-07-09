@@ -692,10 +692,6 @@
             opacity: 1;
         }
     </style>
-</head>
-
-<body>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF7WYMQY74"></script>
     <script>
@@ -705,6 +701,28 @@
         gtag('config', 'G-TF7WYMQY74');
     </script>
 
+    <!-- Trecho de evento para a página de conversão Contato.
+No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém clicar no link ou botão escolhido. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18297309495/0ZM_CLHwws0cELeS65RE',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
+</head>
+
+<body>
+
+
     <!-- HEADER -->
     <header>
         <img src="./assets/images/logo/logo.png" height="48" alt="Zapp Infláveis">
@@ -712,7 +730,7 @@
             <a href="#produto">Produto</a>
             <a href="#galeria">Galeria</a>
             <a href="#faq">FAQ</a>
-            <a href="https://wa.me/5511947567444" class="btn-cta">
+            <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444" class="btn-cta">
                 <i class="fab fa-whatsapp"></i> Solicitar orçamento
             </a>
         </nav>
@@ -728,7 +746,7 @@
                 </div>
                 <h1>Bastões Infláveis<br>Personalizados</h1>
                 <p>Transforme sua marca em destaque em eventos e campanhas</p>
-                <a href="https://wa.me/5511947567444" class="btn-whats-hero">
+                <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444" class="btn-whats-hero">
                     <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Falar com especialista
                 </a>
             </div>
@@ -902,7 +920,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 40px;">
-                        <a href="https://wa.me/5511947567444" class="btn-green">
+                        <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444" class="btn-green">
                             <i class="fab fa-whatsapp"></i> Falar no WhatsApp
                         </a>
                     </div>
@@ -989,7 +1007,7 @@
                         style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(40px, 5vw, 60px); font-weight: 900; color: #0d1117; text-transform: uppercase; line-height: 1; margin: 0;">
                         Projetos realizados</h2>
                 </div>
-                <a href="https://wa.me/5511947567444" class="btn-green" style="flex-shrink: 0;">
+                <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444" class="btn-green" style="flex-shrink: 0;">
                     <i class="fab fa-whatsapp"></i> Solicitar projeto
                 </a>
             </div>
@@ -1053,7 +1071,7 @@
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/5511947567444" class="whatsapp-float">
+    <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
