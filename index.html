@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <style>
         *,
@@ -1082,6 +1083,99 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
         class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookie-consent-banner" class="cookie-consent-banner" role="dialog" aria-live="polite" aria-label="Consentimento de cookies">
+        <div class="cookie-consent-banner__content">
+            <div class="cookie-consent-banner__icon" aria-hidden="true">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="cookie-consent-banner__text">
+                <h3>Valorizamos sua privacidade</h3>
+                <p>Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, analisar o tráfego do site e personalizar conteúdo e anúncios. Você pode aceitar todos os cookies ou gerenciar suas preferências a qualquer momento.</p>
+            </div>
+            <div class="cookie-consent-banner__actions">
+                <button id="cookie-accept-btn" class="cookie-btn cookie-btn--primary" type="button">Aceitar</button>
+                <button id="cookie-manage-btn" class="cookie-btn cookie-btn--secondary" type="button">Gerenciar preferências</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-consent-overlay" class="cookie-consent-overlay" hidden></div>
+
+    <div id="cookie-consent-modal" class="cookie-consent-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+        <div class="cookie-consent-modal__header">
+            <div>
+                <p class="cookie-consent-modal__eyebrow">Configurações</p>
+                <h3 id="cookie-modal-title">Preferências de cookies</h3>
+            </div>
+            <button id="cookie-close-modal" class="cookie-consent-modal__close" type="button" aria-label="Fechar modal">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="cookie-consent-modal__body">
+            <div class="cookie-category">
+                <div class="cookie-category__meta">
+                    <div>
+                        <strong>Necessários</strong>
+                        <p>Sempre ativos para o funcionamento básico do site.</p>
+                    </div>
+                </div>
+                <label class="cookie-switch" aria-label="Necessários">
+                    <input type="checkbox" value="necessary" checked disabled>
+                    <span class="cookie-switch__slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-category">
+                <div class="cookie-category__meta">
+                    <div>
+                        <strong>Estatísticas</strong>
+                        <p>Ajuda a entender como os visitantes usam o site.</p>
+                    </div>
+                </div>
+                <label class="cookie-switch" aria-label="Estatísticas">
+                    <input type="checkbox" value="statistics">
+                    <span class="cookie-switch__slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-category">
+                <div class="cookie-category__meta">
+                    <div>
+                        <strong>Marketing</strong>
+                        <p>Usados para oferecer anúncios e conteúdo mais relevantes.</p>
+                    </div>
+                </div>
+                <label class="cookie-switch" aria-label="Marketing">
+                    <input type="checkbox" value="marketing">
+                    <span class="cookie-switch__slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-category">
+                <div class="cookie-category__meta">
+                    <div>
+                        <strong>Preferências</strong>
+                        <p>Memorizam suas escolhas para melhorar a experiência.</p>
+                    </div>
+                </div>
+                <label class="cookie-switch" aria-label="Preferências">
+                    <input type="checkbox" value="preferences">
+                    <span class="cookie-switch__slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="cookie-consent-modal__footer">
+            <button id="cookie-save-btn" class="cookie-btn cookie-btn--primary" type="button">Salvar Preferências</button>
+            <button id="cookie-accept-all-btn" class="cookie-btn cookie-btn--secondary" type="button">Aceitar Todos</button>
+            <button id="cookie-decline-btn" class="cookie-btn cookie-btn--ghost" type="button">Recusar Opcionais</button>
+        </div>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
 
     <script>
         // Galeria de produto
