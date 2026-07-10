@@ -29,6 +29,8 @@
     function updateGoogleConsent(consent) {
         var consentState = {
             ad_storage: consent.marketing ? 'granted' : 'denied',
+            ad_user_data: consent.marketing ? 'granted' : 'denied',
+            ad_personalization: consent.marketing ? 'granted' : 'denied',
             analytics_storage: consent.statistics ? 'granted' : 'denied',
             functionality_storage: consent.preferences ? 'granted' : 'denied',
             personalization_storage: consent.preferences ? 'granted' : 'denied',
@@ -37,11 +39,15 @@
         };
 
         if (window.gtag) {
-            window.gtag('consent', 'update', consentState);
+            if (!consent.hasOwnProperty('decisionMade')) {
+                window.gtag('consent', 'default', consentState);
+            } else {
+                window.gtag('consent', 'update', consentState);
+            }
         }
 
         if (window.dataLayer) {
-            window.dataLayer.push({ event: 'cookie_consent_updated', consent: consentState });
+            window.dataLayer.push({ event: consent.hasOwnProperty('decisionMade') ? 'cookie_consent_updated' : 'cookie_consent_default', consent: consentState });
         }
     }
 
@@ -72,6 +78,13 @@
     function applySavedConsent() {
         var storedConsent = getStoredConsent();
         if (!storedConsent) {
+            updateGoogleConsent({
+                necessary: true,
+                statistics: false,
+                marketing: false,
+                preferences: false,
+                decisionMade: false
+            });
             showBanner();
             return;
         }
@@ -90,7 +103,8 @@
     }
 
     function persistAndClose(preferences) {
-        setConsent(preferences);
+        var consent = Object.assign({}, preferences, { decisionMade: true });
+        setConsent(consent);
         hideBanner();
         closeModal();
     }
