@@ -18,681 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
-            background: #fff;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:hover {
-            opacity: 0.85;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        @keyframes wapulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-            }
-
-            70% {
-                box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* HEADER */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #fff;
-            border-bottom: 1px solid #f0f0f0;
-            padding: 0 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
-            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        header nav {
-            display: flex;
-            align-items: center;
-            gap: 36px;
-        }
-
-        header nav a {
-            font-size: 14px;
-            font-weight: 500;
-            color: #444;
-        }
-
-        .btn-cta {
-            background: #25D366;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-cta:hover {
-            opacity: 0.9;
-        }
-
-        /* HERO */
-        .hero {
-            position: relative;
-            height: calc(100vh - 72px);
-            min-height: 560px;
-            background-image: url('./assets/images/banner/bateco-header-site.png');
-            background-size: cover;
-            background-position: center top;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(160deg, rgba(0, 0, 0, 0.55) 0%, rgba(10, 12, 20, 0.75) 100%);
-        }
-
-        .hero-content {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 64px 80px;
-        }
-
-        .hero-content>div {
-            max-width: 760px;
-        }
-
-        .badge-experience {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 8px 22px;
-            border-radius: 50px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(52px, 8vw, 104px);
-            font-weight: 900;
-            color: #fff;
-            line-height: 0.92;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin: 0 0 24px 0;
-        }
-
-        .hero p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
-            font-weight: 300;
-            margin: 0 0 40px 0;
-            max-width: 460px;
-            line-height: 1.65;
-        }
-
-        .btn-whats-hero {
-            background: #25D366;
-            color: #fff;
-            padding: 16px 38px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 17px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            animation: wapulse 2.5s infinite;
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            background: #0d1117;
-            display: flex;
-            justify-content: center;
-        }
-
-        .stats-bar-inner {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-left: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .stat-item {
-            padding: 28px 32px;
-            border-right: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .stat-value {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 36px;
-            font-weight: 900;
-            color: #F7941D;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: #F7F7F7;
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* SECTIONS */
-        .section-white {
-            padding: 96px 80px;
-            background: #fff;
-        }
-
-        .section-dark {
-            padding: 96px 80px;
-            background: #0d1117;
-        }
-
-        .section-gray {
-            padding: 96px 80px;
-            background: #f8f8f8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* BADGES */
-        .badge-light {
-            display: inline-block;
-            background: #fff8ef;
-            color: #F7941D;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 4px;
-            margin-bottom: 18px;
-        }
-
-        .badge-dark {
-            display: inline-block;
-            background: rgba(247, 148, 29, 0.15);
-            color: #F7941D;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 4px;
-            margin-bottom: 18px;
-        }
-
-        /* SECTION TITLES */
-        .section-title-dark {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(40px, 5vw, 60px);
-            font-weight: 900;
-            color: #0d1117;
-            text-transform: uppercase;
-            line-height: 1;
-            margin: 0 0 40px 0;
-        }
-
-        .section-title-light {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(36px, 4vw, 56px);
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            line-height: 1.05;
-            margin: 0;
-        }
-
-        /* PRODUCT SECTION */
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 72px;
-            align-items: start;
-        }
-
-        .main-img-wrap {
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            margin-bottom: 14px;
-            background: #f5f5f5;
-        }
-
-        .main-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .thumbs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .thumb-item {
-            cursor: pointer;
-            border: 3px solid transparent;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: border-color 0.2s;
-        }
-
-        .thumb-item.active {
-            border-color: #F7941D;
-        }
-
-        .thumb-item img {
-            width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            display: block;
-        }
-
-        .thumb-item:hover img {
-            opacity: 0.85;
-        }
-
-        .spec-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 36px;
-        }
-
-        .spec-card {
-            background: #f8f8f8;
-            border-radius: 10px;
-            padding: 16px 20px;
-        }
-
-        .spec-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #aaa;
-            margin-bottom: 6px;
-        }
-
-        .spec-value {
-            font-weight: 700;
-            font-size: 20px;
-            color: #0d1117;
-            font-family: 'Barlow Condensed', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        /* BUTTONS */
-        .btn-orange {
-            background: #F7941D;
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-orange:hover {
-            background: #d97d0d;
-            opacity: 1;
-        }
-
-        .btn-green {
-            background: #25D366;
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-green:hover {
-            opacity: 0.9;
-        }
-
-        /* BENEFITS */
-        .benefits-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: end;
-            margin-bottom: 56px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-top: 3px solid #F7941D;
-            border-radius: 12px;
-            padding: 28px 22px;
-        }
-
-        .benefit-card i {
-            font-size: 26px;
-            color: #fff;
-            margin-bottom: 18px;
-            display: block;
-        }
-
-        .benefit-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* USE CASES */
-        .usecase-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 72px;
-            align-items: center;
-        }
-
-        .usecase-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .usecase-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: #fff;
-            border-radius: 10px;
-            padding: 18px 20px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .usecase-icon {
-            width: 44px;
-            height: 44px;
-            background: #F7941D;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .usecase-icon i {
-            color: #fff;
-            font-size: 17px;
-        }
-
-        .usecase-item span {
-            font-size: 15px;
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-
-        /* SINCE CARD */
-        .since-card {
-            background: #0d1117;
-            border-radius: 24px;
-            padding: 60px 52px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .since-card-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #F7941D, #ffba5c);
-        }
-
-        .since-label {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 52px;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.25);
-            line-height: 1;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .since-year {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 96px;
-            font-weight: 900;
-            color: #F7941D;
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .since-sub {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        }
-
-        .since-divider {
-            width: 40px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.15);
-            margin: 0 auto 16px;
-        }
-
-        .since-brand {
-            color: #F7F7F7;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-bottom: 1px solid #ebebeb;
-        }
-
-        .faq-btn {
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 24px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .faq-btn span:first-child {
-            font-weight: 600;
-            font-size: 16px;
-            color: #0d1117;
-            line-height: 1.4;
-        }
-
-        .faq-icon {
-            font-size: 24px;
-            font-weight: 300;
-            color: #F7941D;
-            flex-shrink: 0;
-            width: 28px;
-            text-align: center;
-        }
-
-        .faq-answer {
-            padding: 0 40px 24px 0;
-            color: #666;
-            font-size: 15px;
-            line-height: 1.8;
-            display: none;
-        }
-
-        .faq-answer.open {
-            display: block;
-        }
-
-        /* GALLERY */
-        .gallery-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            margin-bottom: 48px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .gallery-item {
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-            background: #1a1f2b;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
-
-        /* FOOTER */
-        footer {
-            background: #060a0f;
-            padding: 64px 80px 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        }
-
-        .footer-bottom {
-            padding-top: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .footer-contact-list a {
-            color: #F7F7F7;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-label {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: #F7F7F7;
-            margin-bottom: 20px;
-        }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #25D366;
-            color: white;
-            width: 62px;
-            height: 62px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            z-index: 999;
-            animation: wapulse 2.5s infinite;
-            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45);
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF7WYMQY74"></script>
     <script>
@@ -747,13 +73,13 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
         <div class="hero-content">
             <div>
                 <div class="badge-experience">
-                    <i class="fas fa-medal" style="color: #F7941D;"></i> 18 anos de experiência
+                    <i class="fas fa-medal hero-icon--medal"></i> 18 anos de experiência
                 </div>
                 <h1>Bastões Infláveis<br>Personalizados</h1>
                 <p>Transforme sua marca em destaque em eventos e campanhas</p>
                 <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444"
                     class="btn-whats-hero">
-                    <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Falar com especialista
+                    <i class="fab fa-whatsapp hero-icon--whatsapp"></i> Falar com especialista
                 </a>
             </div>
         </div>
@@ -774,7 +100,7 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                 <div class="stat-value">PVC</div>
                 <div class="stat-label">Vinil pneumático 0,20mm</div>
             </div>
-            <div class="stat-item" style="border-right: none;">
+            <div class="stat-item stat-item--last">
                 <div class="stat-value">100%</div>
                 <div class="stat-label">Personalizado</div>
             </div>
@@ -806,20 +132,19 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                 </div>
 
                 <!-- Descrição -->
-                <div style="padding-top: 8px;">
+                <div class="product-description">
                     <div class="badge-light">Produto</div>
-                    <h2
-                        style="font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #0d1117; line-height: 1.05; text-transform: uppercase; margin: 0 0 28px 0;">
+                    <h2 class="product-title">
                         Descrição técnica<br>do produto</h2>
 
-                    <p style="color: #555; line-height: 1.8; margin: 0 0 18px 0; font-size: 15px;">O bastão inflável é
+                    <p class="product-copy">O bastão inflável é
                         feito em PVC Vinil pneumático, com espessura de 0,20 mm, medida de 50 x 10 cm e área útil de
                         impressão de 48 x 8 cm. Seu formato em baguete possui válvula para enchimento, acabamento em
                         solda eletrônica nas bordas e base branca. A impressão é feita em serigrafia, permitindo uma
                         grande variedade de cores. Para um acabamento mais brilhante e sofisticado, é possível produzir
                         o PVC em cores específicas, com prazo adicional de produção.</p>
 
-                    <p style="color: #555; line-height: 1.8; margin: 0 0 36px 0; font-size: 15px;">Somos especialistas
+                    <p class="product-copy product-copy--bottom">Somos especialistas
                         na fabricação de batecos para eventos. Nossos bastões infláveis são perfeitos para divulgar sua
                         empresa em qualquer tipo de evento.</p>
 
@@ -843,7 +168,7 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                     </div>
 
                     <a href="https://wa.me/5511947567444" class="btn-green">
-                        <i class="fab fa-whatsapp" style="font-size: 18px;"></i> Solicitar orçamento
+                        <i class="fab fa-whatsapp"></i> Solicitar orçamento
                     </a>
                 </div>
 
@@ -860,10 +185,9 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                     <h2 class="section-title-light">Por que escolher os bastões da Zapp Infláveis?</h2>
                 </div>
                 <div>
-                    <h3
-                        style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 700; color: #fff; text-transform: uppercase; margin: 0 0 14px 0;">
+                    <h3 class="benefits-intro-title">
                         Bastões Infláveis Personalizados</h3>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 15px; line-height: 1.8; margin: 0;">Com 18 anos
+                    <p class="benefits-intro-copy">Com 18 anos
                         de experiência, a Zapp Infláveis transforma ideias em experiências visuais memoráveis. Nossos
                         bastões infláveis, também conhecidos como batecos ou bate-bate, são desenvolvidos para elevar o
                         nível de qualquer evento, combinando engenharia de materiais, personalização estratégica e
@@ -925,7 +249,7 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                             <span>Lançamentos de produtos e campanhas de marketing.</span>
                         </div>
                     </div>
-                    <div style="margin-top: 40px;">
+                    <div class="usecase-actions">
                         <a onclick="gtag_report_conversion('https://wa.me/5511947567444')"
                             href="https://wa.me/5511947567444" class="btn-green">
                             <i class="fab fa-whatsapp"></i> Falar no WhatsApp
@@ -933,7 +257,7 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: center;">
+                <div class="usecase-card-wrapper">
                     <div class="since-card">
                         <div class="since-card-bar"></div>
                         <div class="since-label">Desde</div>
@@ -949,10 +273,9 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
 
     <!-- FAQ -->
     <section id="faq" class="section-white">
-        <div class="container" style="max-width: 760px;">
+        <div class="container faq-container">
             <div class="badge-light">Dúvidas</div>
-            <h2
-                style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(40px, 5vw, 60px); font-weight: 900; color: #0d1117; text-transform: uppercase; line-height: 1; margin: 0 0 52px 0;">
+            <h2 class="faq-title">
                 Perguntas Frequentes</h2>
 
             <div class="faq-item">
@@ -1005,17 +328,16 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
     </section>
 
     <!-- GALERIA -->
-    <section id="galeria" style="padding: 96px 80px; background: #f8f8f8;">
+    <section id="galeria" class="gallery-section">
         <div class="container">
             <div class="gallery-header">
                 <div>
                     <div class="badge-light">Portfolio</div>
-                    <h2
-                        style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(40px, 5vw, 60px); font-weight: 900; color: #0d1117; text-transform: uppercase; line-height: 1; margin: 0;">
+                    <h2 class="gallery-title">
                         Projetos realizados</h2>
                 </div>
                 <a onclick="gtag_report_conversion('https://wa.me/5511947567444')" href="https://wa.me/5511947567444"
-                    class="btn-green" style="flex-shrink: 0;">
+                    class="btn-green gallery-cta">
                     <i class="fab fa-whatsapp"></i> Solicitar projeto
                 </a>
             </div>
@@ -1042,8 +364,8 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
             <div class="footer-grid">
                 <div>
                     <img src="./assets/images/logo/logo.png" height="56" alt="Zapp Infláveis"
-                        style="margin-bottom: 18px;">
-                    <p style="color: #F7F7F7; font-size: 14px; line-height: 1.8; max-width: 280px; margin: 0;">
+                        class="footer-brand-logo">
+                    <p class="footer-description">
                         Especialistas em bastões infláveis personalizados com 18 anos de experiência em eventos e
                         campanhas promocionais.</p>
                 </div>
@@ -1051,29 +373,29 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
                     <div class="footer-label">Contato</div>
                     <div class="footer-contact-list">
                         <a href="mailto:marcelo@zappinflaveis.com.br">
-                            <i class="fa fa-envelope" style="color: #F7941D; width: 16px; text-align: center;"></i>
+                            <i class="fa fa-envelope footer-contact-icon"></i>
                             marcelo@zappinflaveis.com.br
                         </a>
                         <a href="tel:+5511947567444">
-                            <i class="fa fa-phone" style="color: #F7941D; width: 16px; text-align: center;"></i> +55
+                            <i class="fa fa-phone footer-contact-icon"></i> +55
                             (11) 9 4756-7444
                         </a>
                         <a href="https://www.instagram.com/zapp.inflaveis/">
-                            <i class="fab fa-instagram" style="color: #F7941D; width: 16px; text-align: center;"></i>
+                            <i class="fab fa-instagram footer-contact-icon"></i>
                             @zapp.inflaveis
                         </a>
                     </div>
                 </div>
                 <div>
                     <div class="footer-label">Endereço</div>
-                    <p style="color: #F7F7F7; font-size: 14px; line-height: 1.8; margin: 0;">Rua Reverendo Israel Vieira
+                    <p class="footer-address">Rua Reverendo Israel Vieira
                         Ferreira, 353<br>Vila Medeiros — CEP 02215-000</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p style="color: rgba(255,255,255,0.3); font-size: 12px; margin: 0;">© 2025 Zapp Infláveis. Todos os
+                <p class="footer-copyright">© 2025 Zapp Infláveis. Todos os
                     direitos reservados.</p>
-                <img src="./assets/images/logo/icon.png" height="28" alt="Z" style="opacity: 0.3;">
+                <img src="./assets/images/logo/icon.png" height="28" alt="Z" class="footer-symbol">
             </div>
         </div>
     </footer>
@@ -1178,29 +500,7 @@ No seu HTML, adicione o trecho e chame gtag_report_conversion quando alguém cli
     <script src="./assets/js/main.js"></script>
 
     <script>
-        // Galeria de produto
-        function trocar(thumb) {
-            var thumbs = document.querySelectorAll('.thumb-item');
-            thumbs.forEach(function (t) { t.classList.remove('active'); });
-            thumb.classList.add('active');
-            document.getElementById('mainImage').src = thumb.querySelector('img').src;
-        }
-
-        // FAQ accordion
-        function toggleFaq(btn) {
-            var answer = btn.nextElementSibling;
-            var icon = btn.querySelector('.faq-icon');
-            var isOpen = answer.classList.contains('open');
-
-            // Fecha todos
-            document.querySelectorAll('.faq-answer').forEach(function (a) { a.classList.remove('open'); });
-            document.querySelectorAll('.faq-icon').forEach(function (i) { i.textContent = '+'; });
-
-            if (!isOpen) {
-                answer.classList.add('open');
-                icon.textContent = '−';
-            }
-        }
+        
     </script>
 
 </body>

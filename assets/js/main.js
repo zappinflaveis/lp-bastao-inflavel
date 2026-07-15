@@ -174,3 +174,27 @@
 
     applySavedConsent();
 })();
+
+// Galeria de produto
+function trocar(thumb) {
+    var thumbs = document.querySelectorAll('.thumb-item');
+    thumbs.forEach(function (t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+    document.getElementById('mainImage').src = thumb.querySelector('img').src;
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+    var answer = btn.nextElementSibling;
+    var icon = btn.querySelector('.faq-icon');
+    var isOpen = answer.classList.contains('open');
+
+    // Fecha todos
+    document.querySelectorAll('.faq-answer').forEach(function (a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-icon').forEach(function (i) { i.textContent = '+'; });
+
+    if (!isOpen) {
+        answer.classList.add('open');
+        icon.textContent = '−';
+    }
+}
