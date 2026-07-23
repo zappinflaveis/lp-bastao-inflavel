@@ -667,6 +667,11 @@ header nav a {
 	padding: 28px 22px;
 }
 
+.section-white .benefit-card {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+}
+
 .benefit-card i {
 	font-size: 26px;
 	color: #fff;
@@ -674,11 +679,19 @@ header nav a {
 	display: block;
 }
 
+.section-white .benefit-card i {
+	color: #F7941D;
+}
+
 .benefit-card p {
 	color: rgba(255, 255, 255, 0.7);
 	font-size: 14px;
 	line-height: 1.7;
 	margin: 0;
+}
+
+.section-white .benefit-card p {
+	color: #3a3a3a;
 }
 
 .usecase-grid {
@@ -980,6 +993,16 @@ footer {
 	color: #fff;
 	text-transform: uppercase;
 	margin: 0 0 14px 0;
+}
+
+.section-white .benefits-intro-title,
+.section-white .benefits-header h2,
+.section-white .section-title-dark {
+	color: #0d1117;
+}
+
+.section-white .benefits-intro-copy {
+	color: #444;
 }
 
 .benefits-intro-copy {
